@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC >
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Vtime登陆</title>
+   <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+   <script type="text/javascript" src="http://static.runoob.com/assets/qrcode/qrcode.min.js"></script>
+   <style>
+   * {
+      padding: 0;
+      margin: 0;
+   }
+   
+   body {
+      background: #ccc;
+   }
+   ul,li{
+      list-style: none;
+   }
+   .all .hearder {
+      width: 100%;
+   }
+   
+   .all .hearder .hearder_main {
+      width: 1200px;
+      height: 80px;
+      margin: 0 auto;
+      border: 1px solid red;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      padding-top: 20px;
+   }
+   
+   .all .hearder .hearder_main .main_box div {
+      height: 60px;
+      position: absolute;
+      line-height: 40px;
+   }
+   
+   .all .hearder .hearder_main .main_box .logo {
+      left: 200px;
+   }
+   
+   .all .hearder .hearder_main .main_box .register {
+      right: 200px;
+   }
+   /*.all .hearder .hearder_main .register a{
+       display:block;
+       width: 120px;
+       height: 50px;
+       background: #ccc;
+    }*/
+   
+   .all .center {
+      width: 1200px;
+      margin: 0 auto;
+      margin-top: 200px;
+   }
+   
+   .all .center .banner {
+      float: left;
+      width: 500px;
+      height: 400px;
+      background: #fff;
+   }
+   
+   .all .center .login_box {
+      width: 350px;
+      height: 350px;
+      float: right;
+      /*background: #fff;*/
+   }
+   
+   .all .center .login_box .login_hearder {
+      width: 350px;
+      height: 50px;
+   }
+   
+   .all .center .login_box .login_hearder .login_scavenging {
+      width: 175px;
+      float: left;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 5px;
+      background-color: #fff;
+   }
+   
+   .all .center .login_box .login_hearder .login_Account {
+      width: 175px;
+      float: left;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 5px;
+      background-color: #fff;
+   }
+   
+   .all .center .login_box .current {
+      background-color: #999 !important;
+   }
+   
+   .all .center .login_box .login_body {
+      width: 350px;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+   }
+   
+   .all .center .login_box .login_body .scavenging_box {
+      position: relative;
+      width: 190px;
+      background: #999;
+      padding: 20px 80px;
+      overflow: hidden;
+   }
+   
+   .all .center .login_box .login_body .Account_box {
+      width: 350px;
+      height: 300px;
+      top: 0;
+      left: 0;
+      display: none;
+   }
+   /*  #container{
+         position: absolute;
+         top: 0;
+         left: 25px;
+         width: 300px;
+         height: 300px;
+      }*/
+   
+   #size,
+   #text {
+      /*display: none;*/
+      width: 100px;
+      height: 100px;
+   }
+   
+   .overdue {
+      position: absolute;
+      top: 20px;
+      width: 200px;
+      height: 140px;
+      z-index: 5;
+      padding-top: 60px;
+      background-color: rgba(100, 100, 100, 0.74);
+      display: none;
+   }
+   
+   .overdue span {
+      text-align: center;
+      line-height: 50px;
+      display: block;
+      color: red;
+   }
+   
+   #qrcode img {
+      width: 200px;
+      height: 200px;
+   }
+   
+   #text {
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: -100px;
+   }
+   
+   .Prompt span {
+      color: #fff;
+      font-size: 14px;
+   }
+   
+   span.inform {
+      display: block;
+      width: 200px;
+      height: 200px;
+      line-height: 200px;
+      position: absolute;
+      top: 20px;
+      background: #fff;
+      z-index: 10;
+      color: #000;
+   }
+   
+   .renovate {
+      border: 0px;
+      background: rgba(0, 0, 0, 0);
+      cursor: pointer;
+      color: #fff;
+   }
+  .login_db_box ul{
+     position: relative;
+  }
+   .login_db_box ul li{
+      position: absolute;
+      top: 0;
+   }
+   .login_db_box ul li:nth-child(1){
+      display: block;
+   }
+   .login_db_box ul li:nth-child(2){
+      display: none;
+   }
+   .login_db_box ul li:nth-child(2) div{
+      padding: 0 50px;
+   }
+   .login_db_box ul li:nth-child(2) div{
+      background:#999;
+      height: 300px;
+   }
+   .login_db_box ul li:nth-child(2) div span{
+      display: none;
+   }
+   .login_db_box ul li:nth-child(2) div input{
+      width: 250px;
+      height: 40px;
+      margin-top:20px;
+   }
+   .login_db_box ul li:nth-child(2) div b{
+      font-weight: 400;
+      display: block;
+      text-align: right;
+   }
+   .renovate:focus {}
+   </style>
+</head>
+
+<body>
+   <!-- <button class = "btn">anniu</button> -->
+   <div class="all">
+      <div class="hearder">
+         <div class="hearder_main">
+            <div class="main_box">
+               <div class="logo">XXX后台</div>
+               <div class="register"><a href="register.html">注册</a></div>
+            </div>
+         </div>
+      </div>
+      <div class="center">
+         <div class="banner">
+         </div>
+         <div class="login_box">
+            <div class="login_hearder" id="login_hearder">
+               <div class="login_scavenging current">扫描登陆</div>
+               <div class="login_Account">账号登陆</div>
+            </div>
+            <div class="login_db_box">
+               <ul>
+                  <li>
+                     <div class="login_body" id="login_body">
+                        <div class="scavenging_box">
+                           <div id="qrcode"></div>
+                           <input id="text" type="text" value="1" />
+                           <!--二维码显示区域-->
+                           <div class="overdue">
+                              <span>您的二维码已过期</span>
+                              <span>请点击下方刷新</span>
+                           </div>
+                           <div class="Prompt">
+                              <span>请使用Vtime扫一扫登录</span>
+                              <button class="renovate"> 刷新 </button>
+                              <span class="inform">您的操作过于频繁，请稍后再试</span>
+                           </div>
+                        </div>
+                        <div class="Account_box">2</div>
+                     </div>
+                  </li>
+                  <li>
+
+                     <div>
+                        <p class="wrong">
+                           <span>请输入正确的手机号码</span>
+                           <span>请输入密码</span>
+                           <span>该账号不存在</span>
+                           <span>密码输入错误</span>
+                        </p>
+                        <input type="text" placeholder="请输入Vtime账号">
+                        <input type="password" placeholder="请输入Vtime密码">
+                        <b>忘记密码</b>
+                        <button type="submit">登陆</button>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="footer"></div>
+   </div>
+</body>
+
+</html>
+<script type="text/javascript">
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+   width: 100,
+   height: 100
+});
+
+function makeCode() {
+   var elText = document.getElementById("text");
+
+   if (!elText.value) {
+      alert("Input a text");
+      elText.focus();
+      return;
+   }
+
+   qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+on("blur", function() {
+   makeCode();
+}).
+on("keydown", function(e) {
+   if (e.keyCode == 13) {
+      makeCode();
+   }
+});
+
+
+
+// inform框；您的操作过于频繁，请稍后再试  隐藏框
+(function inform() {
+   $(".inform").hide();
+})()
+
+setInterval(overdue_shou, 10000);
+
+function overdue_shou() {
+   $(".overdue").show();
+}
+
+var int = self.setInterval("look()", 1000);
+
+function look() {
+   // $.ajax({
+   //     type: 'get',
+   //     url: "{{login_url}}",
+   //     data: {
+   //         "code":"{{code}}"
+   //     },
+   //     dataType: 'json',
+   //     beforeSend: function () {
+   //         console.log("123")
+   //     },
+   //   success: function (data) {
+   //                     consoe.log(data.url)
+   //                   if (data.code == 0) {
+   //                       window.clearInterval(int);
+   //                       alert('手机端已扫二维码');
+   //                   }else if(data.code == 1005){
+   //                       window.clearInterval(int);
+   //                       alert('手机二维码已过期');
+   //                        // $(".overdue").shou();
+   //                   }else if(data.code == 1002){
+   //                       alert('用户不存在');
+   //                       window.clearInterval(int);
+   //                   }
+   //               },
+   //     error: function () {
+   //         console.log('内部错误，请联系开发人员');
+   //         window.clearInterval(int);
+   //     }
+   // });
+}
+var second = 0;
+$(".renovate").click(function() {
+    ++second;
+   if (second > 3) {
+       $(".overdue").show();
+      // $(".renovate";
+      $(".renovate").attr("disabled", "true");
+      setTimeout(lock, 60000)
+
+      function lock() {
+         second = 0;
+         $('.renovate').removeAttr("disabled");
+         // inform框；您的操作过于频繁，请稍后再试  隐藏框
+         $(".inform").hide();
+      }
+      // inform框；您的操作过于频繁，请稍后再试  显示框
+      $(".inform").show();
+   }else{
+       $.ajax({
+           type: 'get',
+           url: "http://192.168.1.136:7000/generate",
+           data: {
+           },
+           dataType: 'json',
+           beforeSend: function() {
+               // console.log("123")
+           },
+           success: function(data) {
+               var code = data.data.code;
+               $("#text").focus();
+               $("#text").val(code)
+               $("#text").blur();
+           },
+           error: function() {
+               console.log('内部错误，请联系开发人员');
+           }
+       })
+   }
+   $(".overdue").hide();
+})
+</script>

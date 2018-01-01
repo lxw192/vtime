@@ -1,0 +1,35 @@
+name 名字 String
+shift_type  班次类型 int  1/ 2/ 3(次上下班)
+
+# 上下班时间设置
+set_time_interval  是否进行打卡时段设置 boolean
+start_1  第一次上班打卡时间 string '9:00'
+start_1_before  多少分钟前开始第一次打卡上班 int 30
+end_1 第一次下班班打卡时间 string '18:00'
+end_1_delay 多少分钟后结束第一次打卡下班 int 30
+
+start_2 第2次上班打卡时间 同start_1
+start_2_before 多少分钟前开始第2次打卡上班 同start_1_before
+end_2 第2次下班班打卡时间 同end_1
+end_2_delay 多少分钟后结束第2次打卡下班 同end_1_delay
+
+start_3 第3次上班打卡时间 同start_1
+start_3_before 多少分钟前开始第3次打卡上班 同start_1_before
+end_3  第3次下班班打卡时间 同end_1
+end_3_delay 多少分钟后结束第2次打卡下班 同end_1_delay
+
+# 休息时间 注：只有一天一班，有意义
+set_rest_time  是否设置休息时间 boolean
+rest_start 休息开始时间   string  '12:00'
+rest_end = 休息结束时间   string  '18:00'
+
+no_clock_out 下班是否需要打卡 boolean
+
+# 人性化班次
+permit_delay_seconde 允许迟到分钟 int 30
+late_seconde  严重迟到分钟 int
+absenteeism_seconde  旷工迟到分钟数 int
+
+# 晚走晚到
+is_stay_late  设置可否晚到晚走 boolean
+stay_late_come_late  晚走分钟数 array [{'stay_late': 3.0 , 'come_late': 1.5}, ... ] stay_late: 晚走小时 flaot。 come_late晚到小时 flaot

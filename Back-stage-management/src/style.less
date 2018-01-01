@@ -1,0 +1,142 @@
+#root {
+   color: #000;
+}
+
+* {
+   padding: 0;
+   margin: 0;
+}
+
+a {
+   text-decoration: none;
+   color:#000;
+}
+a:hover{
+   text-decoration:none;
+}
+
+body {
+   background: #ccc;
+}
+
+.current{
+   background: #fff;
+   border-radius: 4px 4px 0 0;
+}
+.nav ul li a.current{
+  color:#007aff;
+}
+.nav ul li a.current:before{
+   background-repeat: no-repeat;
+}
+.nav ul li:nth-child(1) a.current:before{
+   background-image:url(./../../static/common/images/home_c.png);
+}
+.nav ul li:nth-child(2) a.current:before{
+   background-image:url(./../../static/common/images/address_c.png);
+}
+.nav ul li:nth-child(3) a.current:before{
+   background-image:url(./../../static/common/images/adhibition_.png);
+}
+.nav ul li:nth-child(4) a.current:before{
+   background-image:url(./../../static/common/images/data_c.png);
+}
+.nav ul li:nth-child(5) a.current:before{
+   background-image:url(./../../static/common/images/set_c.png);
+}
+.nav ul li:nth-child(6) a.current:before{
+   background-image:url(./../../static/common/images/out_c.png);
+}
+.header_box {
+   width: 1200px;
+   background: #007AFF;
+   overflow: hidden;
+   margin: 0 auto;
+}
+
+.header_center {
+   margin: 0 auto;
+   overflow: hidden;
+}
+ul,
+li,
+ol,
+dl {
+   list-style: none;
+}
+
+.logo_box {
+   width: 240px;
+   height: 70px; //32
+   float: left;
+}
+
+.nav ul li a:hover {
+   color: #1890ff;
+}
+
+.logo {
+   width: 120px;
+   height: 32px;
+   margin: 16px auto;
+   border-radius: 5px;
+   background: #ccc;
+   text-align: center;
+   line-height: 30px;
+   color: #fff;
+}
+
+.nav ul li {
+   float: left;
+   cursor: pointer;
+   text-align: center;
+}
+.nav ul li a:before{
+   content: " ";
+   display: inline-block;
+   width: 34px;
+   height: 34px;
+   margin-right: 14px;
+   position: relative;
+   top:12px;
+   //background-image:url(./tupian.png)
+}
+.nav ul li:nth-child(1) a:before{
+   background-image:url(./../../static/common/images/home.png)
+}
+.nav ul li:nth-child(2) a:before{
+   background-image:url(./../../static/common/images/address.png)
+}
+.nav ul li:nth-child(3) a:before{
+   background-image:url(./../../static/common/images/adhibition.png)
+}
+.nav ul li:nth-child(4) a:before{
+   background-image:url(./../../static/common/images/data.png)
+}
+.nav ul li:nth-child(5) a:before{
+   background-image:url(./../../static/common/images/set.png)
+}
+.nav ul li:nth-child(6) a:before{
+   background-image:url(./../../static/common/images/out.png)
+}
+
+.nav ul li a {
+   display: block;
+   line-height: 70px;
+   padding:0 28px;
+   color: #fff;
+}
+
+.centre {
+   width: 1135px;
+   height: 80px;
+   background: #e4e4e4;
+   padding-top: 20px;
+}
+
+.main_center{
+   width: 1200px;
+   height: 830px;
+   margin: 0 auto;
+   background: #E4E4E4;
+}
